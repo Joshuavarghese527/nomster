@@ -3,9 +3,11 @@ class PlacesController < ApplicationController
   # Add a filter to authenticate user before any of these actions in the array
   before_action :authenticate_user!, :only => [:create, :new, :edit, :update, :destroy]
 
-   def index
+ def index
     @places = Place.all
-   end
+  
+    @places = Place.order("name").page(params[:page]).per(5)
+  end
 
   def new
     @place = Place.new
