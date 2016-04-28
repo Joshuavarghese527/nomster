@@ -1,14 +1,13 @@
 <!-- Place Description & Map -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="m-place-box col-xs-10 col-xs-offset-1">
-      <hgroup class="m-place-heading">
+    <div class="booyah-box col-xs-10 col-xs-offset-1">
         <h1><%= @place.name %></h1>
         <h3 class="subheader"><%= @place.address %></h3>
+         </br 
       </hgroup>
       <p class="lead"><%= @place.description %></p>
+   </div>
     
-    
+   <div class="booyah-box col-xs-10 col-xs-offset-1">  
 <style>
       #map {
     height: 300px;
@@ -44,16 +43,16 @@ function initMap() {
         src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
 
         <div id="map"></div>
-        <% end %>
+        </body>
+        </div>
 
-    
-      <div class="pull-right m-place-edit-container">
+            <div class="booyah-box col-xs-10 col-xs-offset-1">
         <% if current_user && current_user == @place.user %>
           <%= link_to 'Edit', edit_place_path(@place), :class => 'btn btn-primary' %>
           <%= link_to 'Delete', place_path(@place), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this place?'}, :class => 'btn btn-danger' %>
+               <% end %>
         <% end %>
-      </div>
-    
+        </div>
     </div>
   </div>
 </div>
@@ -62,7 +61,7 @@ function initMap() {
 <!-- photo block -->
 <div class="container-fluid">
   <div class="row">
-    <div class="m-place-box col-xs-10 col-xs-offset-1">
+     <div class="booyah-box col-xs-10 col-xs-offset-1">  
       <% if @place.photos.present? %>
         <h2 class="m-photo-heading">Photos of <%= @place.name %></h2>
         <div class="row">
@@ -114,7 +113,7 @@ function initMap() {
 </div>
 
 <!-- comment block -->
-<div class="m-place-box col-xs-10 col-xs-offset-1">
+<div class="booyah-box col-xs-10 col-xs-offset-1">  
   <% if @place.comments.present? %>
     <h2 class="m-comments-heading">Comments for <%= @place.name %></h2>
     <% @place.comments.each do |comment| %>
